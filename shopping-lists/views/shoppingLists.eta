@@ -10,7 +10,9 @@
 <h2>Active shopping lists</h2>
 
 <ul>
-<% it.lists.forEach((task) => { %>
-  <li><%= task.name %></li>
+<% it.lists.forEach((list) => { %>
+  <li>
+    <a href="/lists/<%= list.id %>"><%= list.name %></a>
+  </li>
 <% }); %>
 </ul>
