@@ -1,4 +1,4 @@
-import { executeQuery } from "../database/database";
+import { executeQuery } from "../database/database.js";
 
 /*
  * A service for adding new shopping lists and listing them.
