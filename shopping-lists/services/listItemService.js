@@ -30,6 +30,19 @@ const findListItems = async (list_id) => {
     return false;
 }
 
+const findById = async (id) => {
+    let result = await executeQuery(
+        "SELECT * FROM shopping_list_items WHERE id = $id;", {
+            id: id,
+        });
+    
+    if (result.rows && result.rows.length > 0) {
+        return result.rows[0];
+    }
+
+    return { id: 0, name: "N/A" };
+};
+
 const markCollected = async (id) => {
     await executeQuery(
         "UPDATE shopping_list_items SET collected = TRUE WHERE id = $id;",
@@ -39,4 +52,4 @@ const markCollected = async (id) => {
     );
 };
 
-export { createListItem, findListItems, markCollected };
+export { createListItem, findListItems, findById, markCollected };
