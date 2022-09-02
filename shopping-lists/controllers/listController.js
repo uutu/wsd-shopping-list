@@ -1,5 +1,6 @@
 import { renderFile } from "https://deno.land/x/eta@v1.12.3/mod.ts";
 import * as shoppingListService from "../services/shoppingListService.js";
+import * as listItemService from "../services/listItemService.js";
 
 /*
  * A controller for viewing and adding shopping lists.
@@ -36,4 +37,16 @@ const viewLists = async (request) => {
     return new Response(await renderFile("shoppingLists.eta", data), responseDetails);
 };
 
-export { addNewList, viewLists };
+const viewItem = async (request) => {
+    const url = new URL(request.url);
+    const urlSplit = url.pathname.split("/");
+
+    const data = {
+        list: await listItemService.findById(urlSplit[2]),
+        // currentWorkEntry... needed?
+    };
+
+    return new Response(await renderFile("itemsList.eta", data), responseDetails);
+};
+
+export { addNewList, viewLists, viewItem };
