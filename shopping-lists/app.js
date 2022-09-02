@@ -22,6 +22,8 @@ const handleRequest = async (request) => {
     return await listController.addNewList(request);
   } else if (url.pathname === "/lists" && request.method === "GET") {
     return await listController.viewLists(request);
+  } else if (url.pathname.match("lists/[0-9]+") && request.method === "GET") {
+    return await listController.viewItem(request);
   } else {
     return new Response("List not found", { status: 404});
   }
