@@ -1,0 +1,17 @@
+<h1><%= it.list.name %></h1>
+
+<% if (it.currentList) { %>
+
+<h2>Add an item to a shopping list</h2>
+
+<form action="/lists/<%= it.list.id %>/entries" method="POST">
+  <input type="submit" value="Add an item!" />
+</form>
+
+<% } else { %>
+
+<form method="POST" action="/lists/<%= it.list.id %>/entries/<%= it.currentList.id %>">
+  <input type="submit" value="Mark as collected!" />
+</form>
+
+<% } %>
