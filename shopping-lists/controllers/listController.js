@@ -37,16 +37,18 @@ const viewLists = async (request) => {
     return new Response(await renderFile("shoppingLists.eta", data), responseDetails);
 };
 
-const viewItem = async (request) => {
+const viewItems = async (request) => {
     const url = new URL(request.url);
     const urlSplit = url.pathname.split("/");
 
     const data = {
-        list: await listItemService.findById(urlSplit[2]),
-        // currentWorkEntry... needed?
+        list: await shoppingListService.findById(urlSplit[2]),
+        currentList: await listItemService.findListItems(urlSplit[2]),
     };
+
+    console.log(data);
 
     return new Response(await renderFile("itemsList.eta", data), responseDetails);
 };
 
-export { addNewList, viewLists, viewItem };
+export { addNewList, viewLists, viewItems };

@@ -10,13 +10,13 @@ const createListItem = async (list_id) => {
     await executeQuery(
         "INSERT INTO shopping_list_items (shopping_list_id) VALUES ($itemId);",
         {
-            itemId: shopping_list_id,
+            itemId: list_id,
         }
     );
 };
 
 const findListItems = async (list_id) => {
-    await executeQuery(
+    let result = await executeQuery(
         "SELECT * FROM shopping_list_items WHERE shopping_list_id = $itemId;",
         {
             itemId: list_id,
@@ -28,19 +28,6 @@ const findListItems = async (list_id) => {
     }
 
     return false;
-}
-
-const findById = async (id) => {
-    let result = await executeQuery(
-        "SELECT * FROM shopping_list_items WHERE id = $id;", {
-            id: id,
-        });
-    
-    if (result.rows && result.rows.length > 0) {
-        return result.rows[0];
-    }
-
-    return { id: 0, name: "N/A" };
 };
 
 const markCollected = async (id) => {
@@ -52,4 +39,4 @@ const markCollected = async (id) => {
     );
 };
 
-export { createListItem, findListItems, findById, markCollected };
+export { createListItem, findListItems, markCollected };

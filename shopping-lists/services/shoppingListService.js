@@ -19,4 +19,17 @@ const findAllActiveLists = async () => {
     return result.rows;
 }
 
-export { addNewList, findAllActiveLists };
+const findById = async (id) => {
+    let result = await executeQuery(
+        "SELECT * FROM shopping_lists WHERE id = $id;", {
+            id: id,
+        });
+    
+    if (result.rows && result.rows.length > 0) {
+        return result.rows[0];
+    }
+
+    return { id: 0, name: "N/A" };
+};
+
+export { addNewList, findAllActiveLists, findById };
