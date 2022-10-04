@@ -23,7 +23,7 @@ const handleRequest = async (request) => {
     return await listController.viewItems(request);
   } else if (url.pathname.match("lists/[0-9]+/deactivate") && request.method === "POST") {
     return await listController.deactivateList(request);
-  } else if (url.pathname.match("lists/[0-9]+/items/[0-9]+") && request.method === "POST") {
+  } else if (url.pathname.match("lists/[0-9]+/items/[0-9]+/collect") && request.method === "POST") {
     return await itemController.markAsCollected(request);
   } else if (url.pathname.match("lists/[0-9]+/items") && request.method === "POST") {
     return await itemController.createItem(request);

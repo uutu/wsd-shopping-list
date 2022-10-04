@@ -12,8 +12,8 @@
 <ul>
 <% it.currentListItems.forEach((item) => { %>
   <li> <%= item.name %> 
-    <form method="POST" action="/lists/<%= it.list.id %>/items/<%= item.id %>">
-    <input type="submit" value="Mark as collected!" />
+    <form method="POST" action="/lists/<%= it.list.id %>/items/<%= item.id %>/collect">
+    <input type="submit" value="Mark collected!" />
     </form>
   </li>
 <% }); %>
