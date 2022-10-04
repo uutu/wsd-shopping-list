@@ -6,11 +6,12 @@ import { executeQuery } from "../database/database.js";
  *
  */
 
-const createListItem = async (list_id) => {
+const createListItem = async (list_id, name) => {
     await executeQuery(
-        "INSERT INTO shopping_list_items (shopping_list_id) VALUES ($itemId);",
+        "INSERT INTO shopping_list_items (shopping_list_id, name) VALUES ($itemId, $name);",
         {
             itemId: list_id,
+            name: name,
         }
     );
 };
