@@ -32,4 +32,13 @@ const findById = async (id) => {
     return { id: 0, name: "N/A" };
 };
 
-export { addNewList, findAllActiveLists, findById };
+const deactivateById = async (id) => {
+    let result = await executeQuery(
+        "UPDATE shopping_lists SET active = FALSE WHERE id = $id;",
+        {
+            id: id,
+        }
+    );
+};
+
+export { addNewList, findAllActiveLists, findById, deactivateById };

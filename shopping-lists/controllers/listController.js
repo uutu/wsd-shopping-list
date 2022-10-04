@@ -45,4 +45,13 @@ const viewItems = async (request) => {
     return new Response(await renderFile("itemsList.eta", data), responseDetails);
 };
 
-export { viewMainPage, addNewList, viewLists, viewItems };
+const deactivateList = async (request) => {
+    const url = new URL(request.url);
+    const urlSplit = url.pathname.split("/");
+    
+    await shoppingListService.deactivateById(urlSplit[2]);
+
+    return requestUtils.redirectTo("/lists");
+};
+
+export { viewMainPage, addNewList, viewLists, viewItems, deactivateList };
