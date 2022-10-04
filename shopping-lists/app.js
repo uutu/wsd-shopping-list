@@ -14,7 +14,7 @@ const handleRequest = async (request) => {
 
   // Change after mainpage is ready
   if (url.pathname === "/" && request.method === "GET") {
-    return requestUtils.redirectTo("/lists");
+    return await listController.viewMainPage(request);
   } else if (url.pathname === "/lists" && request.method === "POST") {
     return await listController.addNewList(request);
   } else if (url.pathname === "/lists" && request.method === "GET") {

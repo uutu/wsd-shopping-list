@@ -12,6 +12,10 @@ const responseDetails = {
     headers: { "Content-Type": "text/html;charset=UTF-8" },
 };
 
+const viewMainPage = async (request) => {
+    return new Response(await renderFile("mainPage.eta"), responseDetails);
+}
+
 const addNewList = async (request) => {
     const formData = await request.formData();
     const name = formData.get("name");
@@ -38,9 +42,7 @@ const viewItems = async (request) => {
         currentListItems: await listItemService.findListItems(urlSplit[2]),
     };
 
-    console.log(data.currentListItems);
-
     return new Response(await renderFile("itemsList.eta", data), responseDetails);
 };
 
-export { addNewList, viewLists, viewItems };
+export { viewMainPage, addNewList, viewLists, viewItems };
