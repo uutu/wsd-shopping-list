@@ -2,7 +2,7 @@
 
 <% if (it.currentList) { %>
 
-<form method="POST" action="/lists/<%= it.list.id %>/entries/<%= it.currentList.id %>">
+<form method="POST" action="/lists/<%= it.list.id %>/items/<%= it.currentList.id %>">
   <input type="submit" value="Mark as collected!" />
 </form>
 
@@ -10,7 +10,7 @@
 
 <h2>Add an item to a shopping list</h2>
 
-<form action="/lists/<%= it.list.id %>/entries" method="POST">
+<form action="/lists/<%= it.list.id %>/items" method="POST">
   <input type="text" name="name" />
   <input type="submit" value="Add an item!" />
 </form>
