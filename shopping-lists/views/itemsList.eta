@@ -19,3 +19,5 @@
 <% }); %>
 </ul>
 <% } %>
+
+<a href="/lists">Shopping lists</a>
