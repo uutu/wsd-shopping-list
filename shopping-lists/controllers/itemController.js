@@ -14,4 +14,13 @@ const createItem = async (request) => {
     return requestUtils.redirectTo(`/lists/${urlSplit[2]}`);
 };
 
-export { createItem };
+const markAsCollected = async (request) => {
+    const url = new URL(request.url);
+    const urlSplit = url.pathname.split("/");
+
+    await listItemService.markCollected(urlSplit[4]);
+
+    return requestUtils.redirectTo(`lists/${urlSplit[2]}`);
+}
+
+export { createItem, markAsCollected };
