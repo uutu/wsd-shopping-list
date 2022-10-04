@@ -2,9 +2,15 @@
 
 <% if (it.currentList) { %>
 
-<form method="POST" action="/lists/<%= it.list.id %>/items/<%= it.currentList.id %>">
-  <input type="submit" value="Mark as collected!" />
-</form>
+<ul>
+  <li> <%= it.currentList.name %> 
+    <form method="POST" action="/lists/<%= it.list.id %>/items/<%= it.currentList.id %>">
+    <input type="submit" value="Mark as collected!" />
+    </form>
+  </li>
+</ul>
+
+
 
 <% } else { %>
 
