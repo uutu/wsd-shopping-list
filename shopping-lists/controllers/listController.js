@@ -38,6 +38,8 @@ const viewItems = async (request) => {
         currentListItems: await listItemService.findListItems(urlSplit[2]),
     };
 
+    console.log(data.currentListItems);
+
     return new Response(await renderFile("itemsList.eta", data), responseDetails);
 };
 

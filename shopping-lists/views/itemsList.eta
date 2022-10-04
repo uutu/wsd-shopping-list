@@ -11,7 +11,7 @@
 
 <ul>
   <li> <%= it.currentListItems.name %> 
-    <form method="POST" action="/lists/<%= it.list.id %>/items/<%= it.currentList.id %>">
+    <form method="POST" action="/lists/<%= it.list.id %>/items/<%= it.currentListItems.id %>">
     <input type="submit" value="Mark as collected!" />
     </form>
   </li>

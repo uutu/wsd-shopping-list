@@ -25,7 +25,7 @@ const findListItems = async (list_id) => {
     );
 
     if (result.rows && result.rows.length > 0) {
-        return result.rows[0];
+        return result.rows;
     }
 
     return false;
