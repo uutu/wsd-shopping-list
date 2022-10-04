@@ -20,7 +20,7 @@ const markAsCollected = async (request) => {
 
     await listItemService.markCollected(urlSplit[4]);
 
-    return requestUtils.redirectTo(`lists/${urlSplit[2]}`);
+    return requestUtils.redirectTo(`/lists/${urlSplit[2]}`);
 }
 
 export { createItem, markAsCollected };
