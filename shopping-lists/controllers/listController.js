@@ -35,7 +35,7 @@ const viewItems = async (request) => {
 
     const data = {
         list: await shoppingListService.findById(urlSplit[2]),
-        currentList: await listItemService.findListItems(urlSplit[2]),
+        currentListItems: await listItemService.findListItems(urlSplit[2]),
     };
 
     return new Response(await renderFile("itemsList.eta", data), responseDetails);

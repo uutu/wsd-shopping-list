@@ -7,10 +7,10 @@
   <input type="submit" value="Add an item!" />
 </form>
 
-<% if (it.currentList) { %>
+<% if (it.currentListItems) { %>
 
 <ul>
-  <li> <%= it.currentList.name %> 
+  <li> <%= it.currentListItems.name %> 
     <form method="POST" action="/lists/<%= it.list.id %>/items/<%= it.currentList.id %>">
     <input type="submit" value="Mark as collected!" />
     </form>
