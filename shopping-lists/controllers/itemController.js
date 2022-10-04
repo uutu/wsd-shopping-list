@@ -1,13 +1,5 @@
 import * as listItemService from "../services/listItemService.js";
-
-const redirectTo = (path) => {
-    return new Response(`Redirecting - ${path}.`, {
-        status: 303,
-        headers: {
-            "Location": path,
-        },
-    });
-};
+import * as requestUtils from "../utils/requestUtils.js";
 
 const createItem = async (request) => {
     const url = new URL(request.url);
@@ -15,7 +7,7 @@ const createItem = async (request) => {
 
     await listItemService.createListItem(urlSplit[2]);
 
-    return redirectTo(`/lists/${urlSplit[2]}`);
+    return requestUtils.redirectTo(`/lists/${urlSplit[2]}`);
 };
 
 export { createItem };
