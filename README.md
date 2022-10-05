@@ -34,7 +34,7 @@ The database.js file executes database queries. The database utilises a connecti
 
 ## Deployed application location for testing
 
-The deployed application can be found at: [link] ------
+The deployed application can be found at: [https://shopping-lists-galore.herokuapp.com/]
 
 ## Guidelines for running the application locally
 
