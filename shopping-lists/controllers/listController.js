@@ -15,7 +15,8 @@ const responseDetails = {
 const viewMainPage = async (request) => {
 
     const data = {
-        statistics: await shoppingListService.findStatistics();
+        listCount: await shoppingListService.countAllLists(),
+        itemCount: await shoppingListService.countAllItems(),
     };
 
     return new Response(await renderFile("mainPage.eta", data), responseDetails);

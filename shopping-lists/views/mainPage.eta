@@ -1,5 +1,12 @@
 <h1>Shared shopping lists</h1>
 
-<p> statistics to be added </p>
+<ul>
+    <% if (it.listCount.list_count === undefined || it.listCount.list_count === 0) { %>
+        <li> No shopping lists yet. </li>
+    <% } else { %>
+    <li> Shopping lists: <%= it.listCount.list_count %> </li>
+    <li> Shopping list items: <%= it.itemCount.item_count %>
+    <% } %>
+</ul>
 
 <a href="/lists">Lists</a>

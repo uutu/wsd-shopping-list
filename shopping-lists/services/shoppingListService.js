@@ -41,4 +41,28 @@ const deactivateById = async (id) => {
     );
 };
 
-export { addNewList, findAllActiveLists, findById, deactivateById };
+const countAllLists = async () => {
+    let result = await executeQuery(
+        "SELECT COUNT(name) AS list_count FROM shopping_lists;"
+    );
+    
+    if (result.rows && result.rows.length > 0) {
+        return result.rows[0];
+    }
+
+    return 0;
+};
+
+const countAllItems = async () => {
+    let result = await executeQuery(
+        "SELECT COUNT(name) AS item_count FROM shopping_list_items;"
+    );
+    
+    if (result.rows && result.rows.length > 0) {
+        return result.rows[0];
+    }
+
+    return 0;
+};
+
+export { addNewList, findAllActiveLists, findById, deactivateById, countAllLists, countAllItems };
