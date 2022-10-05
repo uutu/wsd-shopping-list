@@ -11,11 +11,15 @@
 
 <ul>
 <% it.currentListItems.forEach((item) => { %>
-  <li> <%= item.name %> 
+
+  <% if (item.collected === true) { %>
+    <li><del> <%= item.name %> </del></li>
+  <% } else { %>
+    <li> <%= item.name %> </li>
+  <% } %> 
     <form method="POST" action="/lists/<%= it.list.id %>/items/<%= item.id %>/collect">
     <input type="submit" value="Mark collected!" />
     </form>
-  </li>
 <% }); %>
 </ul>
 <% } %>
