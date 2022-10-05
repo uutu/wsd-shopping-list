@@ -4,8 +4,8 @@ import * as listItemService from "../services/listItemService.js";
 import * as requestUtils from "../utils/requestUtils.js";
 
 /*
- * A controller for viewing and adding shopping lists.
- *
+ * A controller for viewing, adding and deactivating shopping lists.
+ * The main page -function returns applicable statistics about the app.
  */
 
 const responseDetails = {
@@ -13,7 +13,12 @@ const responseDetails = {
 };
 
 const viewMainPage = async (request) => {
-    return new Response(await renderFile("mainPage.eta"), responseDetails);
+
+    const data = {
+        statistics: await shoppingListService.findStatistics();
+    };
+
+    return new Response(await renderFile("mainPage.eta", data), responseDetails);
 }
 
 const addNewList = async (request) => {
