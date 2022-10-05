@@ -51,7 +51,7 @@ const countAllLists = async () => {
         return result.rows[0];
     }
 
-    return 0;
+    return { list_count: 0 };
 };
 
 const countAllItems = async () => {
@@ -63,7 +63,7 @@ const countAllItems = async () => {
         return result.rows[0];
     }
 
-    return 0;
+    return { item_count: 0 };
 };
 
 export { addNewList, findAllActiveLists, findById, deactivateById, countAllLists, countAllItems };
