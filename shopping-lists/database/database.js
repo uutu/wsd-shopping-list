@@ -5,8 +5,12 @@ import { Pool } from "https://deno.land/x/postgres@v0.16.1/mod.ts";
  * The number of concurrent connections is set to 3 by default.
  */
 
-const CONCURRENT_CONNECTIONS = 3;
-const connectionPool = new Pool({}, CONCURRENT_CONNECTIONS);
+let connectionPool;
+if (Deno.env.get("DATABASE_URL")) {
+  connectionPool = new Pool(Deno.env.get("DATABASE_URL"), CONCURRENT_CONNECTIONS);
+} else {
+  connectionPool = new Pool({}, CONCURRENT_CONNECTIONS);
+}
 
 const executeQuery = async (query, params) => {
     const response = {};
