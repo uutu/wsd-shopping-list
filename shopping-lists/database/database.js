@@ -4,6 +4,7 @@ import { Pool } from "https://deno.land/x/postgres@v0.16.1/mod.ts";
  * A connection pool is used to take care of connections.
  * The number of concurrent connections is set to 3 by default.
  */
+const CONCURRENT_CONNECTIONS = 3;
 
 let connectionPool;
 if (Deno.env.get("DATABASE_URL")) {

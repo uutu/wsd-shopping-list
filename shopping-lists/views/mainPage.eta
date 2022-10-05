@@ -3,7 +3,7 @@
 <h1>Shared shopping lists</h1>
 
 <ul>
-    <% if (it.listCount.list_count === undefined || it.listCount.list_count === 0) { %>
+    <% if (it.listCount.list_count <= 0) { %>
         <li> No shopping lists yet. </li>
     <% } else { %>
     <li> Shopping lists: <%= it.listCount.list_count %> </li>
