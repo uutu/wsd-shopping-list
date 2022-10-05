@@ -3,7 +3,7 @@ import { executeQuery } from "../database/database.js";
 /*
  * A service for creating, finding and marking
  * list items in any given shopping list.
- *
+ * Sorting for list items is done within the SQL query.
  */
 
 const createListItem = async (list_id, name) => {
@@ -18,7 +18,7 @@ const createListItem = async (list_id, name) => {
 
 const findListItems = async (list_id) => {
     let result = await executeQuery(
-        "SELECT * FROM shopping_list_items WHERE shopping_list_id = $itemId;",
+        "SELECT * FROM shopping_list_items WHERE shopping_list_id = $itemId ORDER BY collected ASC, name ASC;",
         {
             itemId: list_id,
         }
