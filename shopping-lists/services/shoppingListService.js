@@ -2,7 +2,8 @@ import { executeQuery } from "../database/database.js";
 
 /*
  * A service for adding new shopping lists and listing them.
- * List is active by default based on the DB schema.
+ * List is active by default based on the DB schema. Another function
+ * is used to deactivate a shopping list.
  */
 
 const addNewList = async (name) => {

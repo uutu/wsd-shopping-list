@@ -2,7 +2,6 @@ import { serve } from "https://deno.land/std@0.140.0/http/server.ts";
 import { configure } from "https://deno.land/x/eta@v1.12.3/mod.ts";
 import * as listController from "./controllers/listController.js";
 import * as itemController from "./controllers/itemController.js";
-import * as requestUtils from "./utils/requestUtils.js";
 
 configure({
   views: `${Deno.cwd()}/views/`,
@@ -12,7 +11,9 @@ configure({
 const handleRequest = async (request) => {
   const url = new URL(request.url);
 
-  // Change after mainpage is ready
+  /*
+   * Application logic for different requests based on pathname and request method.
+   */
   if (url.pathname === "/" && request.method === "GET") {
     return await listController.viewMainPage(request);
   } else if (url.pathname === "/lists" && request.method === "POST") {

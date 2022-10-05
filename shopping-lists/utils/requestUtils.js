@@ -1,4 +1,4 @@
-// Refactored redirects in a single utility file
+// Refactored redirects in a single utility file to lower redundancy.
 
 const redirectTo = (path) => {
     return new Response(`Redirect to ${path}.`, {

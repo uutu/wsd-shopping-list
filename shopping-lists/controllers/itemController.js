@@ -1,6 +1,10 @@
 import * as listItemService from "../services/listItemService.js";
 import * as requestUtils from "../utils/requestUtils.js";
 
+/*
+ * A controller for creating and marking shopping list items as collected.
+ */
+
 const createItem = async (request) => {
     
     const formData = await request.formData();
